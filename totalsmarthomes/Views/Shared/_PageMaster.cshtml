@@ -1,0 +1,64 @@
+﻿
+    @{
+    Layout = null;
+    }
+
+    <!DOCTYPE html>
+    <!--[if IE 8]><html class="no-js ie8 lt-ie10 lt-ie9" lang="en" dir="ltr"><![endif]-->
+    <!--[if IE 9]><html class="no-js ie9 lt-ie10" lang="en" dir="ltr"><![endif]-->
+    <!--[if gt IE 9]><!-->
+    <html class="no-js" lang="en" dir="ltr">
+    <!--<![endif]-->
+    <head>
+        @*<!-- Global site tag (gtag.js) - Google Analytics -->
+                <script async src="https://www.googletagmanager.com/gtag/js?id=UA-84553831-2"></script>
+                <script>window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-84553831-2');</script>
+                <!-- Google Tag Manager -->
+                <script>(function(w, d, s, l, i) {
+                        w[l] = w[l] || [];
+                        w[l].push({
+                            'gtm.start':
+                                new Date().getTime(),
+                            event: 'gtm.js'
+                        })
+                        var f = d.getElementsByTagName(s)[0],
+                            j = d.createElement(s),
+                            dl = l != 'dataLayer' ? '&l=' + l : '';
+                        j.async = true;
+                        j.src =
+                            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                        f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WZZ68BC');</script>
+                <!-- End Google Tag Manager -->*@
+
+      
+              <link rel="alternate" href="https://www.whitelabel.com" hreflang="en-gb" />
+            <link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+            <link rel="apple-touch-startup-image" href="/images/startup/startup-320x460.png" media="screen and (max-device-width:320px)">
+            <link rel="apple-touch-startup-image" href="/images/startup/startup-640x920.png" media="(max-device-width:480px) and (-webkit-min-device-pixel-ratio:2)">
+            <link rel="apple-touch-startup-image" href="/images/startup/startup-640x1096.png" media="(max-device-width:548px) and (-webkit-min-device-pixel-ratio:2)">
+            <link rel="apple-touch-startup-image" sizes="1024x748" href="/images/startup/startup-1024x748.png" media="screen and (min-device-width:481px) and (max-device-width:1024px) and (orientation:landscape)">
+            <link rel="apple-touch-startup-image" sizes="768x1004" href="/images/startup/startup-768x1004.png" media="screen and (min-device-width:481px) and (max-device-width:1024px) and (orientation:portrait)">
+      
+            
+
+            Branst0n
+        </head>
+        <body class="noJS">
+            <div class="container">
+                 <hr />
+                <section>
+                    <div class="overlay">
+                        @RenderBody()
+                    </div>
+                </section>
+            
+            </div>
+         
+
+        </body>
+    </html>

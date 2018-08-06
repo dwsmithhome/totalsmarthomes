@@ -1,0 +1,68 @@
+﻿@model totalsmarthomes.Models.ViewModels.Shared.HeaderViewModel
+<header class="row">
+    <input type="text" id="searchUrl"value="@Model.SearchUrl" class="hidden" />
+    <div class="col-xs-6 col-sm-5 col-md-3 col-lg-3" itemscope itemtype="http://schema.org/Organization">
+        @Html.Partial("Header/_HeaderLogo")
+    </div><!-- /Logo -->
+    <div class="col-xs-2 col-sm-5 col-sm-pull-1 col-md-8 col-md-push-1 col-lg-9 col-lg-pull-1 navbar">
+        <div class="hidden-xs">@Html.Partial("Nav/_HeaderTopNav")</div>
+        <div class="hidden-lg hidden-md hidden-sm">
+            @if (Model.HideStoreSearch)
+            {
+                <div class="header-icon">
+                    <a href="/book-an-appointment"><img src="/Images/appointment.jpg" class="img-responsive" itemprop="logo" alt=""/></a>
+                </div>
+            }
+            else
+            {
+                <div class="header-icon">
+                    <img src="/Images/appointment.jpg" class="img-responsive" itemprop="logo" alt=""/>
+                </div>
+                <div class="appointment-popdown">
+                    @using (Html.BeginForm("Index", "Appointments", new { @id = "frmHeaderSearch", @name = "frmHeaderSearch", @class = "locationSubmit" }))
+    {
+                <input type="hidden" name="Latitude" id="_searchLatHeader" />
+                <input type="hidden" name="Longitude" id="_searchLngHeader" />
+                <div class="input-group">
+                    <input type="text" class="form-control input-lg secondary-input" placeholder="Search Keyword(s)" id="headerstoresearchtxt" name="AppointmentLogicModel.SearchModel.TownPostCode" />
+                    <span class="input-group-addon" id="basic-addon1">
+                        <button type="button" class="btn" id="header-storesearch-btn"><span class="glyphicon glyphicon-play"></span></button>
+                    </span>
+                </div>
+                <div>
+                    <br />
+                    <div class="my-location ">
+                        <span id="findMyLocation" class="usemyloc">
+                            Use My Location<img alt="Use My Location" src="/Images/White-Pin.png" class="location-pin" />
+                        </span>
+                    </div>
+                </div>
+}
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
+        <div class="search-top-icon pull-right">
+            <img src="/Images/search.jpg" class="img-responsive searchIcon" itemprop="logo" alt="" />
+        </div>
+
+        <div class="search-popdown">
+            <div class="input-group">
+                <input type="text" class="form-control input-lg search-textbox" placeholder="Search Keyword(s)" id="header-search-txt" />
+                <span class="input-group-btn" id="header-search-btn">
+                    <button type="button" class="btn input-lg search pull-right"><span class="search-image"></span></button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden-lg hidden-md">
+        <div class="col-xs-2 col-sm-1 pull-right">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" onclick="SlideMenuAndBody();"/>
+            <label for="nav-trigger" class="pull-right" id="lbl-nav-trigger"></label>
+            @Html.Partial("Nav/_BurgerNav")
+        </div>
+    </div>    
+</header>
