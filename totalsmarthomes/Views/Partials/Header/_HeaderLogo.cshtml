@@ -1,0 +1,10 @@
+﻿@model totalsmarthomes.Models.ViewModels.Shared.HeaderViewModel
+
+@{
+    if (Model.Site.SiteLogo != null)
+    {
+        <div class="header-logo">
+            <a href="/"><img src="@Model.Site.SiteLogo.Url" class="img-responsive" itemprop="logo" alt="@Model.Site.SiteName" /></a>
+        </div>
+    }
+}

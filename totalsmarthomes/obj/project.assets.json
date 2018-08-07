@@ -2,6 +2,26 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "BuildBundlerMinifier/2.8.391": {
+        "type": "package",
+        "build": {
+          "build/BuildBundlerMinifier.targets": {}
+        }
+      },
+      "BundlerMinifier.Core/2.8.391": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.App": "2.0.0-preview1-002111-00",
+          "NUglify": "1.5.11",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netcoreapp2.0/dotnet-bundle.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/dotnet-bundle.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -2638,6 +2658,19 @@
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
         }
       },
+      "NUglify/1.5.11": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0",
+          "System.Security.Cryptography.Algorithms": "4.2.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/NUglify.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/NUglify.dll": {}
+        }
+      },
       "Remotion.Linq/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -4333,10 +4366,57 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "totalsmarthomes.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/totalsmarthomes.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/totalsmarthomes.Models.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "BuildBundlerMinifier/2.8.391": {
+      "sha512": "JvnXAF6e55QKR9t+UcG/kVcWap22fHeKjkUcrJwl2N3vF/NpohuvZlBceqYF9S8aL8xOx6h+PX2plnymc23kiQ==",
+      "type": "package",
+      "path": "buildbundlerminifier/2.8.391",
+      "files": [
+        "build/BuildBundlerMinifier.targets",
+        "buildbundlerminifier.2.8.391.nupkg.sha512",
+        "buildbundlerminifier.nuspec",
+        "tools/net46/BundlerMinifier.dll",
+        "tools/net46/NUglify.dll",
+        "tools/net46/Newtonsoft.Json.dll",
+        "tools/netcoreapp2.0/BundlerMinifier.dll",
+        "tools/netcoreapp2.0/NUglify.dll",
+        "tools/netcoreapp2.0/Newtonsoft.Json.dll",
+        "tools/netstandard1.3/BundlerMinifier.dll",
+        "tools/netstandard1.3/NUglify.dll",
+        "tools/netstandard1.3/Newtonsoft.Json.dll"
+      ]
+    },
+    "BundlerMinifier.Core/2.8.391": {
+      "sha512": "I1FScX7XjqSnwDXyOlb6YjY94qi17QItoCKO9VJsCq+2pneKh73mIKcwrV7hijD0t1L1/2v6j+triavjdpblOw==",
+      "type": "package",
+      "path": "bundlerminifier.core/2.8.391",
+      "files": [
+        "bundlerminifier.core.2.8.391.nupkg.sha512",
+        "bundlerminifier.core.nuspec",
+        "lib/net452/dotnet-bundle.exe",
+        "lib/net452/dotnet-bundle.runtimeconfig.json",
+        "lib/netcoreapp1.0/dotnet-bundle.dll",
+        "lib/netcoreapp1.0/dotnet-bundle.runtimeconfig.json",
+        "lib/netcoreapp2.0/dotnet-bundle.dll",
+        "lib/netcoreapp2.0/dotnet-bundle.runtimeconfig.json",
+        "lib/netstandard2.0/dotnet-bundle.dll",
+        "lib/netstandard2.0/dotnet-bundle.runtimeconfig.json",
+        "prefercliruntime"
+      ]
+    },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "sha512": "rMDlyePoxggkmN/qgha1+BR2Uy+dOr38xKCQOPfVNKGY07R2nYJGMTKJFE1XFgwD70RYUNazf2fqutjJF18XgQ==",
       "type": "package",
@@ -6933,6 +7013,21 @@
         "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.1.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
+      ]
+    },
+    "NUglify/1.5.11": {
+      "sha512": "BsEI6jqtDNsvW0TIkX7susL1xNvBbGlnuIveQqGa36JJv9At5iiHHy3ehUv3K5Hg9PBITPn1PnIUOLw53pOSCA==",
+      "type": "package",
+      "path": "nuglify/1.5.11",
+      "files": [
+        "lib/net35/NUglify.dll",
+        "lib/net35/NUglify.xml",
+        "lib/net40/NUglify.dll",
+        "lib/net40/NUglify.xml",
+        "lib/netstandard1.3/NUglify.dll",
+        "lib/netstandard1.3/NUglify.xml",
+        "nuglify.1.5.11.nupkg.sha512",
+        "nuglify.nuspec"
       ]
     },
     "Remotion.Linq/2.2.0": {
@@ -11491,12 +11586,20 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "totalsmarthomes.Models/1.0.0": {
+      "type": "project",
+      "path": "../totalsmarthomes.model/totalsmarthomes.Models.csproj",
+      "msbuildProject": "../totalsmarthomes.model/totalsmarthomes.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "BuildBundlerMinifier >= 2.8.391",
+      "BundlerMinifier.Core >= 2.8.391",
       "Microsoft.AspNetCore.App >= 2.1.1",
-      "Microsoft.NETCore.App >= 2.1.0"
+      "Microsoft.NETCore.App >= 2.1.0",
+      "totalsmarthomes.Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -11526,7 +11629,11 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.model/totalsmarthomes.Models.csproj": {
+              "projectPath": "/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.model/totalsmarthomes.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -11548,6 +11655,14 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "2.1.1"
+          },
+          "BundlerMinifier.Core": {
+            "target": "Package",
+            "version": "2.8.391"
+          },
+          "BuildBundlerMinifier": {
+            "target": "Package",
+            "version": "2.8.391"
           }
         },
         "imports": [

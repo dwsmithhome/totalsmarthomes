@@ -1,0 +1,38 @@
+﻿@model AppointmentBooking.Models.ViewModels.Shared.HeaderViewModel
+@*Generates Top Level Nav in Header (only Desktop and Tablet (Landscape))*@
+
+@if (Model.PrimaryNavigation != null)
+{
+    <ul class="list-inline topnav">
+        @foreach (var item in Model.PrimaryNavigation)
+        {
+            var classname = item.IsCTAMenu ? "visible-lg-inline-block visible-md-inline-block visible-sm-inline-block cta" : "visible-lg-inline-block visible-md-inline-block";
+            if (item.ChildMenus != null && item.ChildMenus.Any())
+            {
+                <li class="@classname dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="@item.MenuItemTitle">
+                        @item.MenuItemTitle <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @foreach (var child in item.ChildMenus)
+                        {
+                            <li class="dropdown-nav">
+                                <a href="@child.PageLink.Url" title="@child.MenuItemTitle">
+                                    @child.MenuItemTitle
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li class="@classname">
+                    <a href="@item.PageLink.Url" title="@item.MenuItemTitle">
+                        @item.MenuItemTitle
+                    </a>
+                </li>
+            }
+        }
+    </ul>
+}

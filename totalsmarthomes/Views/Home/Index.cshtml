@@ -1,94 +1,130 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = "../Shared/_PageMaster.cshtml";
 }
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how to build ASP.NET apps that can run anywhere.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    There are powerful new features in Visual Studio for building modern web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner3.svg" alt="Microsoft Azure" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
+@*Desktop banner*@
+@if (Model.MainBanner != null)
+{
+    if (Model.MainBanner.BannerBackgroundImage != null && Model.MainBanner.BannerBackgroundImage.Url != null)
+    {
+        var styleCss = "background-image:url('" + Model.MainBanner.BannerBackgroundImage.Url + "');";
+        var pagelink = Model.MainBanner.CtaPageLink;
+        var titleText = Model.MainBanner.BannerAltText;
 
-<div class="row">
-    <div class="col-md-3">
-        <h2>Application uses</h2>
-        <ul>
-            <li>Sample pages using ASP.NET Core MVC</li>
-            <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>How to</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Overview</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Run &amp; Deploy</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
-        </ul>
+<div class="col-lg-12 col-md-12 col-sm-12 hidden-xs home-page-top-banner" style="@styleCss" Title="@titleText">
+    <div class="col-lg-offset-6 col-md-offset-6 col-sm-offset-6">
+        <h1>@Model.MainBanner.BannerCaption</h1>
+        @Html.Raw(Model.MainBanner.CaptionText)
+        <div class="pull-right">
+            @if (!String.IsNullOrEmpty(Model.MainBanner.CtaButtonText))
+            {
+            <a href="@pagelink.Url" title="@pagelink.Name" class="btn btn-cta" role="button">
+                @Model.MainBanner.CtaButtonText
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+            }
+        </div>
     </div>
 </div>
+<div class="clearfix hidden-xs">&nbsp;</div>
+    }
+}
+
+
+@if (Model.MobileBanner != null)
+{ 
+<h2 class="text-center hidden-lg hidden-md hidden-sm">@Model.MobileBanner.BannerCaption</h2>
+
+    @if (Model.MobileBanner.BannerBackgroundImage != null && Model.MobileBanner.BannerBackgroundImage.Url != null)
+    {
+        var styleCss = "background-image:url('" + Model.MobileBanner.BannerBackgroundImage.Url + "');";
+        var pagelink = Model.MobileBanner.CtaPageLink;
+        var titleText = Model.MobileBanner.BannerAltText;
+
+<div class="col-xs-12 hidden-lg hidden-md hidden-sm home-page-top-banner" style="@styleCss" Title="@titleText">
+    @Html.Raw(Model.MobileBanner.CaptionText)
+    @if (!String.IsNullOrEmpty(Model.MobileBanner.CtaButtonText))
+    {
+    <a href="@pagelink.Url" title="@pagelink.Name" class="btn btn-cta center-block" role="button">
+        @Model.MobileBanner.CtaButtonText
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </a>
+    }
+</div>
+    }
+<div class="clearfix"></div>
+}
+
+@*Desktop / Tablet banners*@
+@if (Model.SecondaryBanners != null)
+{
+    var count = 1;
+<div class="row hidden-xs">
+    @foreach (var banner in Model.SecondaryBanners)
+    {
+    if (banner.BannerBackgroundImage != null && banner.BannerBackgroundImage.Url != null)
+    {
+    var styleCss = "background-image:url('" + banner.BannerBackgroundImage.Url + "');";
+    var pagelink = Model.MobileBanner.CtaPageLink;
+    var titleText = Model.MobileBanner.BannerAltText;
+
+    <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs">
+        <div class="col-lg-12 col-md-12 col-sm-12 home-page-sub-banner" style="@styleCss" Title="@banner.BannerAltText">
+            <div class="col-lg-offset-7 col-md-offset-5 col-sm-offset-4 pull-right">
+                <div class="home-page-sub-banner-text">
+                    <h2>@Html.Raw(banner.BannerCaption)</h2>
+                    <div class="hidden-sm">@Html.Raw(banner.CaptionTextLgAndMd)</div>
+                    <div class="hidden-lg hidden-md">@Html.Raw(banner.CaptionTextSm)</div>
+                    <div class="cta-secondary pull-right">
+                        @if (!String.IsNullOrEmpty(banner.CtaButtonText))
+                        {
+                        <a href="@pagelink.Url" title="@pagelink.Name">
+                            @banner.CtaButtonText
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    if (count % 2 == 0)
+    {
+    <div class="clearfix">&nbsp;</div>
+    }
+    count++;
+    }
+    }
+</div>
+}
+
+@*Mobile banners*@
+@if (Model.SecondaryMobileBanners != null)
+{
+<div class="clearfix visible-xs">&nbsp;</div>
+    foreach (var banner in Model.SecondaryMobileBanners)
+    {
+        if (banner.BannerBackgroundImage != null && banner.BannerBackgroundImage.Url != null)
+        {
+            var styleCss = "background-image:url('" + banner.BannerBackgroundImage.Url + "');";
+            var className = banner.TextToLeft ? "pull-left" : "pull-right";
+            var pagelink = Model.MobileBanner.CtaPageLink;
+
+<div class="col-sm-12 hidden-lg hidden-md hidden-sm home-page-sub-banner" style="@styleCss" Title="@banner.BannerAltText">
+    <div class="col-xs-6 @className">
+        <h2>@Html.Raw(banner.BannerCaption)</h2>
+        <div class="cta-secondary">
+            @if (!String.IsNullOrEmpty(banner.CtaButtonText))
+            {
+            <a href="@pagelink.Url" title="@pagelink.Name">
+                @banner.CtaButtonText
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+            }
+        </div>
+    </div>
+</div>
+<div class="clearfix visible-xs">&nbsp;</div>
+        }
+    }
+}

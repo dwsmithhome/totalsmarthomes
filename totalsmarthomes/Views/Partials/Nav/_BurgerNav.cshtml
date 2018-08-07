@@ -1,0 +1,33 @@
+﻿@model AppointmentBooking.Models.ViewModels.Shared.HeaderViewModel
+@*Generates the Burger Nav for Mobile and Tablet*@
+
+@if (Model.MobilePrimaryNavigation != null)
+{
+    <ul class="burger-nav">
+        @foreach (var item in Model.MobilePrimaryNavigation)
+        {
+            var classname = item.IsCTAMenu ? "burger-nav-item-cta" : "burger-nav-item";
+            if (item.ChildMenus != null && item.ChildMenus.Any())
+            {
+                <li class="@classname" style="cursor: pointer;" aria-expanded="false" aria-controls="burger-menu-links" id="burger-0">
+                    <a href="#">@item.MenuItemTitle <span class="caret"></span></a>
+                    <ul aria-expanded="false" id="buger-menu-links-0" aria-labelledby="burger-menu-links" style="display: none;">
+                        @foreach (var child in item.ChildMenus)
+                        {
+                            <li><a href="@child.PageLink.Url" title="@child.MenuItemTitle">@child.MenuItemTitle</a></li>
+                        }
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li class="@classname">
+                    <a href="@item.PageLink.Url" title="@item.MenuItemTitle">
+                        @item.MenuItemTitle
+                    </a>
+                </li>
+
+            }
+        }
+    </ul>
+}
