@@ -7,18 +7,18 @@ namespace totalsmarthomes.Models.ViewModels.Shared
 {
     public class FooterViewModel
     {
-        private readonly IContent _content;
+        readonly IContent _content;
 
         public FooterViewModel(IContent content)
         {
-            _content = content.Parent == null ? content : content.Parent;
+            _content = content.Parent ?? content;
             Site = new SiteViewModel(_content);
             GenericProperties = new GenericPropertiesViewModel(content);
         }
 
         public SiteViewModel Site { get; set; }
 
-        public GenericPropertiesViewModel GenericProperties { get; set; }        
+        public GenericPropertiesViewModel GenericProperties { get; set; }
 
 
         public IEnumerable<FooterColumnLinkViewModel> FooterMenu

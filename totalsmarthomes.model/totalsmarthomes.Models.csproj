@@ -9,6 +9,7 @@
     <Folder Include="ViewModels\Shared\" />
     <Folder Include="Base\" />
     <Folder Include="Content\" />
+    <Folder Include="ViewModels\Error\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="PageModels\Appointment\AppointmentPageModel.cs" />

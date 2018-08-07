@@ -30,11 +30,12 @@
     }
 }
 
-@*@*Mobile banner*@
-<h2 class="text-center hidden-lg hidden-md hidden-sm">@Model.MobileBanner.BannerCaption</h2>
+
 @if (Model.MobileBanner != null)
-{
-    if (Model.MobileBanner.BannerBackgroundImage != null && Model.MobileBanner.BannerBackgroundImage.Url != null)
+{ 
+<h2 class="text-center hidden-lg hidden-md hidden-sm">@Model.MobileBanner.BannerCaption</h2>
+
+    @if (Model.MobileBanner.BannerBackgroundImage != null && Model.MobileBanner.BannerBackgroundImage.Url != null)
     {
         var styleCss = "background-image:url('" + Model.MobileBanner.BannerBackgroundImage.Url + "');";
         var pagelink = Model.MobileBanner.CtaPageLink;

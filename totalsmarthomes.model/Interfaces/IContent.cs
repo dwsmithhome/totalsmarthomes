@@ -6,6 +6,8 @@ namespace totalsmarthomes.Models.Interfaces
     {
         T GetPropertyValue<T>(string identifier);
 
+        void AddProperty(string identifier, object value);
+
         bool HasValue(string identifier);
 
         string Name { get; set; }

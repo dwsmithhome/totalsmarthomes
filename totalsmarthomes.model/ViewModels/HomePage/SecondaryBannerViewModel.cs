@@ -4,11 +4,11 @@ namespace totalsmarthomes.Models.ViewModels.HomePage
 {
     public class SecondaryBannerViewModel
     {
-        private readonly IContent _content;
+        readonly IContent _content;
 
-        private readonly int captionLengthLimitForLgAndMd = 90;
-        private readonly int captionLengthLimitForSm = 45;
-        private readonly int captionSubstringLimit = 5;
+        readonly int captionLengthLimitForLgAndMd = 90;
+        readonly int captionLengthLimitForSm = 45;
+        readonly int captionSubstringLimit = 5;
 
         public SecondaryBannerViewModel(IContent content)
         {

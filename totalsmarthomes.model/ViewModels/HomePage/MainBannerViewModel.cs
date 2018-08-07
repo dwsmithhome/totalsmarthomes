@@ -4,7 +4,7 @@ namespace totalsmarthomes.Models.ViewModels.HomePage
 {
     public class MainBannerViewModel
     {
-        private readonly IContent _content;
+        public IContent _content;
 
         public MainBannerViewModel(IContent content)
         {

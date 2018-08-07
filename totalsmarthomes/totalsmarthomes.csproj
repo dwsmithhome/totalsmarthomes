@@ -6,11 +6,14 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="BundlerMinifier.Core" Version="2.8.391" />
+    <PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Views\Partials\" />
     <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\fonts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\Partials\Footer\_Copyright.cshtml" />
@@ -36,6 +39,9 @@
     <Content Remove="Views\Partials\Nav\_BurgerNav.cshtml" />
     <Content Remove="Views\Partials\Nav\_HeaderTopNav.cshtml" />
     <Content Remove="Views\Shared\_Layout.cshtml" />
+    <Content Remove="bundleconfig.json" />
+    <Content Remove="wwwroot\fonts\FutuLt.ttf" />
+    <Content Remove="wwwroot\images\splashlogo.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Partials\Footer\_Copyright.cshtml" />
@@ -59,8 +65,18 @@
     <None Include="Views\Partials\Meta\_MetaHeadContent.cshtml" />
     <None Include="Views\Partials\Nav\_BurgerNav.cshtml" />
     <None Include="Views\Partials\Nav\_HeaderTopNav.cshtml" />
+    <None Include="bundleconfig.json" />
+    <None Include="wwwroot\fonts\FutuLt.ttf" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\totalsmarthomes.model\totalsmarthomes.Models.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\ErrorViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\images\splashlogo.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>

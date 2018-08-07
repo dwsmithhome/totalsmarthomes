@@ -1,4 +1,5 @@
-﻿using totalsmarthomes.Models.Content;
+﻿using System.Collections.Generic;
+using System.Linq;
 using totalsmarthomes.Models.Interfaces;
 
 namespace totalsmarthomes.Models.Base
@@ -7,26 +8,39 @@ namespace totalsmarthomes.Models.Base
     {
         public BaseModel()
         {
+            properties = new List<Property>();
         }
 
-        public string Name { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public string DocumentTypeAlias { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public Content.Content Parent { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        List<Property> properties;
+
+        public string Name { get; set; }
+        public string DocumentTypeAlias { get; set; }
+        public Content.Content Parent { get; set; }
+
+        public void AddProperty(string identifier, object value)
+        {
+            properties.Add(new Property { Identifier = identifier, Value = value });
+        }
 
         public T GetPropertyValue<T>(string identifier)
         {
-            throw new System.NotImplementedException();
+            if (HasValue(identifier))
+            {
+                return (T)properties.FirstOrDefault(x => x.Identifier == identifier).Value;
+            }
+
+            return default(T);
         }
 
         public bool HasValue(string identifier)
         {
-            throw new System.NotImplementedException();
+            return properties.Any(x => x.Identifier == identifier);
         }
 
-        public Content.Content CurrentPage { get; }
+        public Content.Content CurrentPage { get; set; }
 
-        public Content.Content Content { get; }
+        public Content.Content Content { get; set; }
 
-        public string Url { get; }
+        public string Url { get; set; }
     }
 }

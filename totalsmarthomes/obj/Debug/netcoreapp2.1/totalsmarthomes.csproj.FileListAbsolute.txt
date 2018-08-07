@@ -5,6 +5,8 @@
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/bin/Debug/netcoreapp2.1/totalsmarthomes.pdb
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/bin/Debug/netcoreapp2.1/totalsmarthomes.Views.dll
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/bin/Debug/netcoreapp2.1/totalsmarthomes.Views.pdb
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes/bin/Debug/netcoreapp2.1/totalsmarthomes.Models.dll
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes/bin/Debug/netcoreapp2.1/totalsmarthomes.Models.pdb
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/totalsmarthomes.csproj.CoreCompileInputs.cache
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/totalsmarthomes.RazorAssemblyInfo.cache
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/totalsmarthomes.RazorAssemblyInfo.cs
@@ -17,8 +19,12 @@
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/Home/Contact.g.cshtml.cs
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/Home/Index.g.cshtml.cs
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/Home/Privacy.g.cshtml.cs
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/Partials/Header/_CookieWarning.g.cshtml.cs
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/Partials/Header/_Header.g.cshtml.cs
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/Partials/Header/_HeaderLogo.g.cshtml.cs
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/Shared/Error.g.cshtml.cs
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_CookieConsentPartial.g.cshtml.cs
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_PageMaster.g.cshtml.cs
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_ValidationScriptsPartial.g.cshtml.cs
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/_ViewImports.g.cshtml.cs
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/_ViewStart.g.cshtml.cs
@@ -28,10 +34,4 @@
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/totalsmarthomes.dll
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/totalsmarthomes.pdb
 /Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/totalsmarthomes.csproj.CopyComplete
-/Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/totalsmarthomes.csprojResolveAssemblyReference.cache
-/Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/Partials/Header/_CookieWarning.g.cshtml.cs
-/Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/Partials/Header/_Header.g.cshtml.cs
-/Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/Partials/Header/_HeaderLogo.g.cshtml.cs
-/Users/Dave/Projects/totalsmarthomes/totalsmarthomes/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_PageMaster.g.cshtml.cs
-/Users/Dave/Projects/totalsmarthomes/totalsmarthomes/bin/Debug/netcoreapp2.1/totalsmarthomes.Models.dll
-/Users/Dave/Projects/totalsmarthomes/totalsmarthomes/bin/Debug/netcoreapp2.1/totalsmarthomes.Models.pdb
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes/bin/Debug/netcoreapp2.1/wwwroot/images/splashlogo.gif

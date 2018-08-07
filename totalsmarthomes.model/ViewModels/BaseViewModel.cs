@@ -32,7 +32,7 @@ namespace totalsmarthomes.Models.ViewModels
 
         public int CompanyCode { get; set; }
 
-        public CultureInfo Culture { get; set; }
+        public CultureInfo Culture { get { return new CultureInfo("en-GB"); }  }
 
         public string DateFormat { get; set; }
          

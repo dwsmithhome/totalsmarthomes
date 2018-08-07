@@ -4,9 +4,9 @@ namespace totalsmarthomes.Models.ViewModels.HomePage
 {
     public class MenuViewModel
     {
-        private readonly IContent _content;
+        readonly IContent _content;
 
-        public MenuViewModel(IContent content) 
+        public MenuViewModel(IContent content)
         {
             _content = content;
         }

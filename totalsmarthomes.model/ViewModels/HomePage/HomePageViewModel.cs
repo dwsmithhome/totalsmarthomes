@@ -6,7 +6,7 @@ namespace totalsmarthomes.Models.ViewModels.HomePage
 {
     public class HomePageViewModel : BaseViewModel<HomePageModel>
     {
-        private readonly HomePageModel _currentPage;
+        readonly HomePageModel _currentPage;
 
         public HomePageViewModel(HomePageModel currentPage) : base(currentPage)
         {
@@ -16,6 +16,7 @@ namespace totalsmarthomes.Models.ViewModels.HomePage
         public string PageHeading => _currentPage.Content.GetPropertyValue<string>("pageHeading");
 
         public MainBannerViewModel MainBanner { get { return new MainBannerViewModel(_currentPage.Content.GetPropertyValue<IContent>("mainBanner")); } }
+
 
         public IEnumerable<SecondaryBannerViewModel> SecondaryBanners
         {
@@ -54,7 +55,7 @@ namespace totalsmarthomes.Models.ViewModels.HomePage
             }
         }
 
-       
+
         public IEnumerable<MenuViewModel> MobileMenu
         {
             get
