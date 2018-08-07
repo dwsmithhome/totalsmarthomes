@@ -1,0 +1,82 @@
+﻿@* Renders The Fav Icon*@
+@model totalsmarthomes.Models.ViewModels.Shared.MetaViewModel
+
+@* Renders The Meta Data and other Head Content *@
+@{
+    try
+    {
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+        if (!String.IsNullOrEmpty(Model.GoogleSiteVerification))
+        {
+            <meta name="google-site-verification" content="@Model.GoogleSiteVerification)">
+        }
+
+        @* BEHAVIORIAL META DATA *@
+        <meta name="apple-mobile-web-app-title" content="@Model.Name">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+        if (Model.DoNotIndex)
+        {
+            <meta name="robots" content="NOINDEX">
+            return;
+        }
+        <meta name="author" content="@Model.Name">
+        if (!String.IsNullOrEmpty(@Model.MetaDescription))
+        {
+            <meta name="description" content="@Model.MetaDescription" />
+        }
+        if (!String.IsNullOrEmpty(Model.MetaKeywords))
+        {
+            <meta name="keywords" content="@Model.MetaKeywords" />
+        }
+
+
+        @* OPEN GRAPH META DATA http://ogp.me/ *@
+        <meta property="og:url" content="@Model.CurrentContent.Url" />
+        <meta property="og:title" content="@Model.Title" />
+        <meta property="og:site_name" content="@Model.Name" />
+        <meta property="og:description" content="@Model.MetaDescription" />
+        <meta property="og:type" content="article" />
+        if (Model.Image != null)
+        {
+            <meta property="og:image" content="@Model.Image.Url" />
+
+        }
+        <meta property="og:locale" content="en_GB" />
+        <meta property="http://ogp.me/ns/article#published_time" content="@Model.CurrentContent.CreateDate.ToString("s", System.Globalization.CultureInfo.InvariantCulture)" />
+        <meta property="http://ogp.me/ns/article#modified_time" content="@Model.CurrentContent.UpdateDate.ToString("s", System.Globalization.CultureInfo.InvariantCulture)" />
+        if (Model.CurrentContent.Parent != null)
+        {
+            <meta property="http://ogp.me/ns/article#section" content="@Model.CurrentContent.Parent.Name" />
+        }
+        if (Model.CurrentContent.HasProperty("endDate"))
+        {
+            var endDate = Model.CurrentContent.GetPropertyValue<DateTime>("endDate", DateTime.MinValue);
+            if (endDate > DateTime.MinValue)
+            {
+                <meta property="http://ogp.me/ns/article#expiration_time" content="@endDate.ToString("s", System.Globalization.CultureInfo.InvariantCulture)" />
+            }
+        }
+
+        var canonicalUrl = String.Empty;
+        if (umbraco.library.RequestServerVariables("HTTP_HOST").ToLower().StartsWith("www"))
+        {
+            canonicalUrl = string.Concat("http://", umbraco.library.RequestServerVariables("HTTP_HOST"), Model.CurrentContent.Url);
+        }
+        else
+        {
+            canonicalUrl = string.Concat("http://www.", umbraco.library.RequestServerVariables("HTTP_HOST"), Model.CurrentContent.Url);
+        }
+        <link rel="canonical" href="@canonicalUrl" />
+        <title>@Model.Title</title>
+    }
+    catch (Exception ex)
+    {
+
+        LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType, "Error rendering MetaHeadContent for page " + Model.CurrentContent.Id, ex);
+
+    }
+}

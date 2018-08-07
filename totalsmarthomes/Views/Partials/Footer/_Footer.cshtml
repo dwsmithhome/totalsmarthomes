@@ -1,0 +1,17 @@
+﻿@model totalsmarthomes.Models.ViewModels.Shared.FooterViewModel
+<footer class="footer">
+    @Html.Partial("Footer/_CTABanner")
+    <!-- .footer-links-section -->
+    <div class="footer-bottom">
+        @Html.Partial("Footer/_FooterLogo")
+        <div class="clearfix">&nbsp;</div>
+        @Html.Partial("Footer/_FooterColumnMenus")
+        <div class="clearfix">&nbsp;</div>
+        <div class="container">
+            <div class="row">
+                @Html.Partial("Footer/_Copyright")
+            </div>
+            <div class="clearfix">&nbsp;</div>
+        </div>
+    </div>
+</footer>

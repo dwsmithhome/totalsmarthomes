@@ -1,0 +1,9 @@
+﻿@* Renders The Cookie Warning across all pages on site.*@
+@model totalsmarthomes.Models.ViewModels.Resource.ResourceViewModel
+<div id="ab_cookie_widget">
+    @Html.Raw(Model.Item["Disclaimer"])
+    <button id="ab_cookie_accept" class="search pull-right" onclick="ab_cookie_accept();return false;">
+        @Model.Item["Close"]
+    </button>
+    <div class="clearfix">&nbsp;</div>
+</div>
