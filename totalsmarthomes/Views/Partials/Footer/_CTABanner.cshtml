@@ -1,5 +1,4 @@
-﻿@model totalsmarthomes.Models.ViewModels.Shared.FooterViewModel
-
+﻿@model StoreFront.Model.ViewModel.Shared.FooterViewModel
 @* Renders the CTA banner within the footer.*@
 
 <div class="row">
@@ -9,7 +8,7 @@
             {
                 if (!String.IsNullOrEmpty(Model.FooterCtaButton.CtaButtonText))
                 {
-                    <a href="@Model.FooterCtaButton.PageLink.Url" title="@Model.FooterCtaButton.PageLink.Name" class="btn btn-cta" role="button">
+                    <a href="@Model.FooterCtaButton.Url" title="@Model.FooterCtaButton.Name" class="btn btn-cta" role="button">
                         @Model.FooterCtaButton.CtaButtonText
                         <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
                     </a>

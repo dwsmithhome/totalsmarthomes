@@ -1,0 +1,11 @@
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/bin/Release/netcoreapp2.1/totalsmarthomes.Service.deps.json
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/bin/Release/netcoreapp2.1/totalsmarthomes.Service.dll
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/bin/Release/netcoreapp2.1/totalsmarthomes.Service.pdb
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/bin/Release/netcoreapp2.1/totalsmarthomes.Models.dll
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/bin/Release/netcoreapp2.1/totalsmarthomes.Models.pdb
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/obj/Release/netcoreapp2.1/totalsmarthomes.Service.csprojResolveAssemblyReference.cache
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/obj/Release/netcoreapp2.1/totalsmarthomes.Service.csproj.CoreCompileInputs.cache
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/obj/Release/netcoreapp2.1/totalsmarthomes.Service.AssemblyInfoInputs.cache
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/obj/Release/netcoreapp2.1/totalsmarthomes.Service.AssemblyInfo.cs
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/obj/Release/netcoreapp2.1/totalsmarthomes.Service.dll
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/obj/Release/netcoreapp2.1/totalsmarthomes.Service.pdb

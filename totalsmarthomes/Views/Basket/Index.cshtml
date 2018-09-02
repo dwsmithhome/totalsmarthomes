@@ -1,0 +1,107 @@
+﻿@model StoreFront.Model.ViewModel.Basket.BasketPageViewModel
+
+@{
+    Layout = "../Shared/_PageMaster.cshtml";
+
+}
+
+<script type="text/javascript">function SetValue(list, id) {
+
+        var value = list.options[list.selectedIndex].value;
+        $.ajax({
+            url: "/Basket/UpdateQuantity?value=" + value + "&id=" + id,
+            type: "GET",
+                dataType: "json",
+                traditional: true,
+                contentType: "application/json; charset=utf-8",
+                success: function(data) {
+
+                },
+                error: function() {
+                    alert("An error has occured!!!");
+                }
+            });
+}</script>
+
+@if (Model.BasketCounter > 0)
+{
+    <h2>Your Basket</h2>
+    <br /><br />
+    <table class="table">
+        <thead class="tablehead">
+            <tr>
+                <td>
+                    Code
+                </td>
+
+                <td>
+                    Product Name
+                </td>
+                <td>
+                    Product Price
+                </td>
+                <td>
+                    Quantity
+                </td>
+                <td>
+                    Subtotal
+                </td>
+                <td></td>
+            </tr>
+        </thead>
+        @foreach (var item in Model.Basket)
+        {
+            <tr>
+                <td>
+                    @item.ProductCode
+                </td>
+
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    £@item.Price
+                </td>
+                <td>
+                    @Html.DropDownList("BasketQuantity_" + item.BasketID, Model.QuantityList, item.Quantity.ToString(), new { @style = "width:70px !important; height:40px !important;line-height: 1;background: url(https://www.totalsmarthomes.com/Images/down.jpg) 90% / 19% no-repeat #ffffff;", @onChange = "SetValue(this," + @item.BasketID + ");" })
+                </td>
+                <td>
+                    £@item.CalculatedPrice
+                </td>
+                <td>
+                    <a asp-controller="Basket" class="basketDelete" asp-action="Delete" asp-route-id="@item.BasketID">x</a>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td></td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                £@Model.Basket.Sum(x => x.CalculatedPrice)
+            </td>
+            <td></td>
+        </tr>
+    </table>
+<div class="row ">
+    <div class="col-lg-12">
+        <a asp-controller="Delivery" asp-action="Index" class="btn btn-secondary registration pull-right ">
+            Purchase Items
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+            </div>
+            <br />
+            <br />
+}
+else
+{
+    <div class="centerBasketText">
+        Your basket is empty, please add products to continue.
+    </div>
+
+}
+
+

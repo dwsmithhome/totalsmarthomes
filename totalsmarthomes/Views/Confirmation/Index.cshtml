@@ -1,0 +1,12 @@
+﻿@model StoreFront.Model.ViewModel.Confirmation.ConfirmationPageViewModel
+@{
+    Layout = "../Shared/_PageMaster.cshtml";
+}
+<div class="centerBasketText">
+    <div style="line-height:20px; margin-top:100px;">
+        Your order has been successfully placed and will recieve a receipt via email.<br /><br />
+        Your transaction ID is @Html.ValueFor(x => x.TransactionID) <br /><br />If you need to contact us about this order please quote the transaction ID in any correspondence.
+        <br />
+        We will send you an email when your items have been despatched
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
+    <Folder Include="ViewModel\Shared\" />
+    <Folder Include="Base\" />
+    <Folder Include="Content\" />
+    <Folder Include="ViewModel\Error\" />
+    <Folder Include="ViewModel\Legal\" />
+    <Folder Include="PageModel\Legal\" />
+    <Folder Include="ViewModel\About\" />
+    <Folder Include="PageModel\About\" />
+    <Folder Include="PageModel\Brand\" />
+    <Folder Include="ViewModel\Brand\" />
+    <Folder Include="PageModel\Product\" />
+    <Folder Include="ViewModel\Product\" />
+    <Folder Include="ViewModel\Basket\" />
+    <Folder Include="PageModel\Basket\" />
+    <Folder Include="Response\" />
+    <Folder Include="Enum\" />
+    <Folder Include="Enum\Response\" />
+    <Folder Include="APIModel\" />
+    <Folder Include="Exception\" />
+    <Folder Include="Parameter\" />
+    <Folder Include="APIModel\Customer\" />
+    <Folder Include="APIModel\Product\" />
+    <Folder Include="APIModel\Purchase\" />
+    <Folder Include="APIModel\Resource\" />
+    <Folder Include="ViewModel\Checkout\" />
+    <Folder Include="PageModel\Checkout\" />
+    <Folder Include="PageModel\Confirmation\" />
+    <Folder Include="PageModel\Delivery\" />
+    <Folder Include="PageModel\Order\" />
+    <Folder Include="PageModel\Payment\" />
+    <Folder Include="PageModel\Profile\" />
+    <Folder Include="PageModel\Register\" />
+    <Folder Include="ViewModel\Confirmation\" />
+    <Folder Include="ViewModel\Delivery\" />
+    <Folder Include="ViewModel\Order\" />
+    <Folder Include="ViewModel\Payment\" />
+    <Folder Include="ViewModel\Profile\" />
+    <Folder Include="ViewModel\Register\" />
+    <Folder Include="PageModel\Account\" />
+    <Folder Include="ViewModel\Account\" />
+    <Folder Include="PageModel\Login\" />
+    <Folder Include="ViewModel\Login\" />
+    <Folder Include="PageModel\ProductDetail\" />
+    <Folder Include="ViewModel\ProductDetail\" />
+    <Folder Include="Enum\Customer\" />
+    <Folder Include="Paging\" />
+    <Folder Include="PageModel\ResetPassword\" />
+    <Folder Include="ViewModel\ResetPassword\" />
+  </ItemGroup>
+  <ItemGroup>
+
+  </ItemGroup>
+  <ItemGroup>
+
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="APIModel\BaseObject.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Mvc.ViewFeatures">
+      <HintPath>..\..\..\..\..\usr\local\share\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.viewfeatures\2.1.1\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,83 @@
+﻿@model StoreFront.Model.ViewModel.Product.ProductPageViewModel
+
+@{
+    Layout = "../Shared/_PageMaster.cshtml";
+}
+
+
+    @using (Html.BeginForm(ViewContext.RouteData.Values["Action"].ToString(), "Product", new { PageIndex = Model.ProductList.PageIndex }))
+    {
+    <div class="row title">
+        <div class="col-lg-12 filterrow ">
+
+            <h2 class=" col-lg-8 float-left">  @Model.Category</h2>
+
+            <div class="col-lg-4 float-left">
+                Order by @Html.DropDownListFor(x => x.SortOrder, Model.SortList, new { @style = "width:200px !important; height:40px !important;line-height: 1;background: url(https://www.totalsmarthomes.com/Images/down.jpg) 97% / 9% no-repeat #ffffff;", @onChange = "this.form.submit();" })
+            </div>
+        </div>
+    </div>
+        }
+
+
+
+
+<div class="row">
+    @foreach (var item in Model.ProductList)
+    {
+        <div class="col-lg-3 nopadding">
+            <div class="col-lg-12 productListItem">
+
+                <a href="/ProductDetail/Index/@item.ProductID/@item.Title.Replace(" ","-")/">
+                    <img src="/Images/Product/@{@item.ProductCode}/@{@item.ProductCode}_Thumbnail.jpg" />
+                </a>
+                <a href="/ProductDetail/Index/@item.ProductID/@item.Title.Replace(" ","-")/">
+                    <h5>
+                        <b>  @item.Title </b>
+                    </h5>
+                </a>
+                £@item.Price
+            </div>
+        </div>
+    }
+</div>
+
+@{
+    var prevDisabled = !Model.ProductList.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.ProductList.HasNextPage ? "disabled" : "";
+}
+
+@if (Model.ProductList.TotalPages != 1)
+{
+<div class="row">
+    <div class="col-lg-12 pagingrow text-center">
+        <a asp-route-sortOrder="@Model.SortOrder"
+           asp-route-pageIndex="@(Model.ProductList.PageIndex - 1)"
+           class="btn btn-default @prevDisabled">
+            Previous
+        </a>
+        @for (int i = 1; i < (Model.ProductList.TotalPages + 1); i++)
+        {
+            if (i != Model.PageIndex)
+            {
+                <a asp-route-sortOrder="@Model.SortOrder" asp-route-pageIndex="@(i)" class="btn btn-default">
+                    @(i)
+                </a>
+            }
+            else
+            {
+                <a class="btn btn-danger" aria-disabled="true">
+                    @(i)
+                </a>
+            }
+
+        }
+
+        <a asp-route-sortOrder="@Model.SortOrder"
+           asp-route-pageIndex="@(Model.ProductList.PageIndex + 1)"
+           class="btn btn-default @nextDisabled">
+            Next
+        </a>
+        </div>
+    </div>
+ } 

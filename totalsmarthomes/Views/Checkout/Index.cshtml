@@ -1,0 +1,112 @@
+﻿@model StoreFront.Model.ViewModel.Checkout.CheckoutPageViewModel
+@{
+    Layout = "../Shared/_PageMaster.cshtml";
+}
+
+
+<h2>Checkout</h2>
+<br /><br />
+<table class="table">
+    <thead class="tablehead">
+        <tr>
+            <td>
+                Code
+            </td>
+
+            <td>
+                Product Name
+            </td>
+            <td>
+                Product Price
+            </td>
+            <td>
+                Quantity
+            </td>
+            <td>
+                Subtotal
+            </td>
+         
+        </tr>
+    </thead>
+    @foreach (var item in Model.Basket)
+    {
+    <tr>
+        <td>
+            @item.ProductCode
+        </td>
+
+        <td>
+            @item.Title
+        </td>
+        <td>
+            £@item.Price
+        </td>
+        <td>
+             @item.Quantity
+        </td>
+        <td>
+            £@item.CalculatedPrice
+        </td>
+    
+    </tr>
+    }
+ <tr>
+        <td></td>
+
+        <td></td>
+
+        <td colspan="2">Delivery</td>
+        <td>
+            £@Model.DeliveryValue.ToString("0.00")
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+
+        <td></td>
+        <td colspan="2">Total</td>
+        <td>
+            £@Model.TotalValue
+        </td>
+        <td></td>
+    </tr>
+</table>
+
+<div class="col-lg-6 registrationLabel">
+    <div class="col-lg-6">Cardholder Address</div>
+    <div class="col-lg-12">
+
+        <div class="col-lg-12">
+
+            @Html.ValueFor(x => x.InvoiceAddress.Address1)<br />
+           
+            @Html.ValueFor(x => x.InvoiceAddress.Address2)<br />
+            @Html.ValueFor(x => x.InvoiceAddress.Address3)<br />
+            @Html.ValueFor(x => x.InvoiceAddress.Address3)<br />
+            @Html.ValueFor(x => x.InvoiceAddress.Postcode)<br />
+        </div>
+    </div>
+</div>
+<div class="col-lg-6 registrationLabel">
+    <div class="col-lg-12">Delivery Address</div>
+    <div class="col-lg-12">
+
+        <div class="col-lg-12">
+            
+            @Html.ValueFor(x => x.DeliveryAddress.Address1)<br />
+            @Html.ValueFor(x => x.DeliveryAddress.Address2)<br />
+            @Html.ValueFor(x => x.DeliveryAddress.Address3)<br />
+            @Html.ValueFor(x => x.DeliveryAddress.Address3)<br />
+            @Html.ValueFor(x => x.DeliveryAddress.Postcode)<br />
+        </div>
+    </div>
+</div>
+
+<div class="row form-row">
+    <a asp-controller="Payment" asp-action="Index" class="btn btn-secondary registration login-submit pull-right">
+        Continue
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+       

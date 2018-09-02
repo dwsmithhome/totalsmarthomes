@@ -1,0 +1,8 @@
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.model/bin/Debug/netcoreapp2.1/totalsmarthomes.Model.deps.json
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.model/bin/Debug/netcoreapp2.1/totalsmarthomes.Model.dll
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.model/bin/Debug/netcoreapp2.1/totalsmarthomes.Model.pdb
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.model/obj/Debug/netcoreapp2.1/totalsmarthomes.Model.csproj.CoreCompileInputs.cache
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.model/obj/Debug/netcoreapp2.1/totalsmarthomes.Model.AssemblyInfoInputs.cache
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.model/obj/Debug/netcoreapp2.1/totalsmarthomes.Model.AssemblyInfo.cs
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.model/obj/Debug/netcoreapp2.1/totalsmarthomes.Model.dll
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.model/obj/Debug/netcoreapp2.1/totalsmarthomes.Model.pdb

@@ -1,45 +1,60 @@
-﻿
-    @{
+﻿@model StoreFront.Model.ViewModel.BaseViewModel<StoreFront.Model.Base.BaseModel>
+@{
     Layout = null;
-    }
+}
 
-    <!DOCTYPE html>
-    <!--[if IE 8]><html class="no-js ie8 lt-ie10 lt-ie9" lang="en" dir="ltr"><![endif]-->
-    <!--[if IE 9]><html class="no-js ie9 lt-ie10" lang="en" dir="ltr"><![endif]-->
-    <!--[if gt IE 9]><!-->
-    <html class="no-js" lang="en" dir="ltr">
-    <!--<![endif]-->
-    <head>
-            <link href="/css/site.min.css" rel="stylesheet" />
-      
-            <link rel="alternate" href="https://www.totalsmarthomes.com" hreflang="en-gb" />
-            <link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
-            <link rel="apple-touch-startup-image" href="/images/startup/startup-320x460.png" media="screen and (max-device-width:320px)">
-            <link rel="apple-touch-startup-image" href="/images/startup/startup-640x920.png" media="(max-device-width:480px) and (-webkit-min-device-pixel-ratio:2)">
-            <link rel="apple-touch-startup-image" href="/images/startup/startup-640x1096.png" media="(max-device-width:548px) and (-webkit-min-device-pixel-ratio:2)">
-            <link rel="apple-touch-startup-image" sizes="1024x748" href="/images/startup/startup-1024x748.png" media="screen and (min-device-width:481px) and (max-device-width:1024px) and (orientation:landscape)">
-            <link rel="apple-touch-startup-image" sizes="768x1004" href="/images/startup/startup-768x1004.png" media="screen and (min-device-width:481px) and (max-device-width:1024px) and (orientation:portrait)">
-      
-            
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js ie8 lt-ie10 lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9 lt-ie10" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+    <link rel="stylesheet" href="~/css/site.css?time=@Html.Raw(DateTime.Now)" />
+    <link rel="stylesheet" href="~/css/fotorama.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/jquery/dist/css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="~/lib/jquery/dist/css/jquery-ui.structure.min.css" />
 
-            
-        </head>
-        <body class="noJS">
-            <div class="container">
-                 <!--<hr /> -->
-                <section>
-                    <div class="overlay">
-                        <div class="center">
-                            <img src="/images/splashlogo.gif" alt="totalsmarthomes.com" />
-                            <br />
-                            Website coming soon
-                        </div>
-                        @RenderBody()
-                    </div>
-                </section>
-            
+    <partial name="../Partials/Meta/_MetaHeadContent.cshtml" for="Meta" />
+    <partial name="../Partials/Meta/_Favicon.cshtml" for="Meta" />
+
+
+    <link rel="alternate" href="https://www.totalsmarthomes.com" hreflang="en-gb" />
+    <link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+    <link rel="apple-touch-startup-image" href="/images/startup/startup-320x460.png" media="screen and (max-device-width:320px)">
+    <link rel="apple-touch-startup-image" href="/images/startup/startup-640x920.png" media="(max-device-width:480px) and (-webkit-min-device-pixel-ratio:2)">
+    <link rel="apple-touch-startup-image" href="/images/startup/startup-640x1096.png" media="(max-device-width:548px) and (-webkit-min-device-pixel-ratio:2)">
+    <link rel="apple-touch-startup-image" sizes="1024x748" href="/images/startup/startup-1024x748.png" media="screen and (min-device-width:481px) and (max-device-width:1024px) and (orientation:landscape)">
+    <link rel="apple-touch-startup-image" sizes="768x1004" href="/images/startup/startup-768x1004.png" media="screen and (min-device-width:481px) and (max-device-width:1024px) and (orientation:portrait)">
+
+
+
+
+</head>
+<body class="noJS">
+    <div class="container">
+
+        <partial name="../Partials/Header/_CookieWarning.cshtml" for="Resource" />
+        <partial name="../Partials/Header/_Header.cshtml" for="Header" />
+
+        <hr />
+
+        <section>
+            <div class="">
+
+                @RenderBody()
             </div>
-         
-
-        </body>
-    </html>
+        </section>
+        <partial name="../Partials/Footer/_Footer.cshtml" for="Footer" />
+    </div>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.passwordstrength.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+    <script type="text/javascript" src="~/js/fotorama.js"></script>
+</body>
+</html>

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "totalsmarthomes", "totalsmarthomes\totalsmarthomes.csproj", "{E96E1A36-DBF5-405A-B0EF-7BE231DD93F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "totalsmarthomes.Models", "totalsmarthomes.model\totalsmarthomes.Models.csproj", "{CC51C78E-8879-40B5-B46C-1765F97ABA8B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreFront.Model", "totalsmarthomes.model\StoreFront.Model.csproj", "{CC51C78E-8879-40B5-B46C-1765F97ABA8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreFront.Service", "totalsmarthomes.Logic\StoreFront.Service.csproj", "{DD9D5F25-9B62-40FD-831A-0EA68F135AA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,5 +21,9 @@ Global
 		{CC51C78E-8879-40B5-B46C-1765F97ABA8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC51C78E-8879-40B5-B46C-1765F97ABA8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC51C78E-8879-40B5-B46C-1765F97ABA8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD9D5F25-9B62-40FD-831A-0EA68F135AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD9D5F25-9B62-40FD-831A-0EA68F135AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD9D5F25-9B62-40FD-831A-0EA68F135AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD9D5F25-9B62-40FD-831A-0EA68F135AA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

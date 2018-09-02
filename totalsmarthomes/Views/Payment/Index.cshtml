@@ -1,0 +1,92 @@
+﻿@model StoreFront.Model.ViewModel.Payment.PaymentPageViewModel
+@{
+    Layout = "../Shared/_PageMaster.cshtml";
+}
+
+@using (Html.BeginForm("Pay", "Payment", FormMethod.Post, new { @id = "address", @name = "address" }))
+{
+<div class="row">
+<div class="col-lg-12">
+<label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left">Total Value</label>
+    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-4"></div>
+@Html.ValueFor(x => x.PurchaseValue)
+</div>
+</div>
+    
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left">Name on Card</label>
+        @Html.TextBoxFor(x => x.CardholderName,
+                     new
+                     {
+                         @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+                         placeholder = "Name on Card",
+                         maxlength = 50,
+                         title = "Name On Card",
+                         data_toggle = "tooltip",
+
+                     })
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left">Card Number</label>
+        @Html.TextBoxFor(x => x.CardNumber,
+                          new
+                          {
+                              @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+                              placeholder = "Card Number",
+                              maxlength = 50,
+                              title = "Card Number",
+                              data_toggle = "tooltip",
+
+                          })
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left">Expiry Date</label>
+        @Html.TextBoxFor(x => x.ExpiryDate,
+                           new
+                           {
+                               @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+                               placeholder = "Expiry Date",
+                               maxlength = 50,
+                               title = "Expiry Date",
+                               data_toggle = "tooltip",
+
+                           })
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left">SEC Code</label>
+        @Html.TextBoxFor(x => x.SECCode,
+                     new
+                     {
+                     @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+                     placeholder = "SEC Code",
+                     maxlength = 50,
+                     title = "SEC Code",
+                     data_toggle = "tooltip",
+
+                     })
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+
+        <button type="submit" class="btn btn-secondary registration login-submit pull-right">
+            Confirm Purchase
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </button>
+
+    </div>
+</div>
+}

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using totalsmarthomes.Models.Interfaces;
+using System;
+using StoreFront.Model.Interface;
 
-namespace totalsmarthomes.Models.Base
+namespace StoreFront.Model.Base
 {
     public class BaseModel : IContent
     {
@@ -32,7 +33,22 @@ namespace totalsmarthomes.Models.Base
             return default(T);
         }
 
+        public T GetPropertyValue<T>(string identifier, object defaultValue)
+        {
+            if (HasValue(identifier))
+            {
+                return (T)properties.FirstOrDefault(x => x.Identifier == identifier).Value;
+            }
+
+            return (T)defaultValue;
+        }
+
         public bool HasValue(string identifier)
+        {
+            return properties.Any(x => x.Identifier == identifier && x.Value != null);
+        }
+
+        public bool HasProperty(string identifier)
         {
             return properties.Any(x => x.Identifier == identifier);
         }
@@ -42,5 +58,9 @@ namespace totalsmarthomes.Models.Base
         public Content.Content Content { get; set; }
 
         public string Url { get; set; }
+
+        public DateTime CreateDate { get; set; }
+
+        public DateTime UpdateDate { get; set; }
     }
 }

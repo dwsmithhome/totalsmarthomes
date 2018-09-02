@@ -1,14 +1,19 @@
 ﻿<Properties StartupConfiguration="{E96E1A36-DBF5-405A-B0EF-7BE231DD93F6}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="totalsmarthomes/Properties/launchSettings.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="totalsmarthomes.model/Interface/ISearchSAL.cs">
     <Files>
-      <File FileName="totalsmarthomes.model/ViewModels/Shared/Header/PrimaryNavigationViewModel.cs" Line="3" Column="41" />
-      <File FileName="totalsmarthomes/Views/Partials/Nav/_HeaderTopNav.cshtml" Line="1" Column="1" />
-      <File FileName="totalsmarthomes/Views/Partials/Header/_Header.cshtml" Line="18" Column="42" />
-      <File FileName="totalsmarthomes/Views/Partials/Header/_CookieWarning.cshtml" Line="2" Column="23" />
-      <File FileName="totalsmarthomes/Views/Shared/_PageMaster.cshtml" Line="33" Column="39" />
-      <File FileName="totalsmarthomes/wwwroot/css/site.css" Line="15" Column="1" />
-      <File FileName="totalsmarthomes/Properties/PublishProfiles/totalsmarthomes - Web Deploy.pubxml" Line="17" Column="11" />
-      <File FileName="totalsmarthomes/Properties/launchSettings.json" Line="1" Column="1" />
+      <File FileName="totalsmarthomes/Views/ProductDetail/Index.cshtml" Line="23" Column="39" />
+      <File FileName="totalsmarthomes/wwwroot/css/site.css" Line="82" Column="14" />
+      <File FileName="totalsmarthomes.Logic/Base/BasePage.cs" Line="1" Column="1" />
+      <File FileName="totalsmarthomes.Logic/API/GenericSAL.cs" Line="1" Column="1" />
+      <File FileName="totalsmarthomes.Logic/API/GenericActionSAL.cs" Line="25" Column="10" />
+      <File FileName="totalsmarthomes.Logic/API/GenericSearchSAL.cs" Line="29" Column="1" />
+      <File FileName="totalsmarthomes.Logic/API/GenericListSAL.cs" Line="1" Column="1" />
+      <File FileName="totalsmarthomes.model/APIModel/Product/Detail.cs" Line="11" Column="1" />
+      <File FileName="totalsmarthomes.model/APIModel/Product/Extra.cs" Line="8" Column="40" />
+      <File FileName="totalsmarthomes.model/APIModel/Product/Specification.cs" Line="13" Column="1" />
+      <File FileName="totalsmarthomes/Startup.cs" Line="88" Column="35" />
+      <File FileName="totalsmarthomes.model/Interface/ISearchSAL.cs" Line="4" Column="44" />
+      <File FileName="totalsmarthomes.model/Interface/IListSAL.cs" Line="6" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -1,4 +1,4 @@
-﻿@model AppointmentBooking.Models.ViewModels.Shared.HeaderViewModel
+﻿@model StoreFront.Model.ViewModel.Shared.HeaderViewModel
 @*Generates the Burger Nav for Mobile and Tablet*@
 
 @if (Model.MobilePrimaryNavigation != null)
@@ -14,7 +14,7 @@
                     <ul aria-expanded="false" id="buger-menu-links-0" aria-labelledby="burger-menu-links" style="display: none;">
                         @foreach (var child in item.ChildMenus)
                         {
-                            <li><a href="@child.PageLink.Url" title="@child.MenuItemTitle">@child.MenuItemTitle</a></li>
+                            <li><a href="@child.Url" title="@child.MenuItemTitle">@child.MenuItemTitle</a></li>
                         }
                     </ul>
                 </li>
@@ -22,7 +22,7 @@
             else
             {
                 <li class="@classname">
-                    <a href="@item.PageLink.Url" title="@item.MenuItemTitle">
+                    <a href="@item.PageLink" title="@item.MenuItemTitle">
                         @item.MenuItemTitle
                     </a>
                 </li>

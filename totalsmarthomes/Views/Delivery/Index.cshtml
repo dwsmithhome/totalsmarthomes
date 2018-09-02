@@ -1,0 +1,187 @@
+﻿@model StoreFront.Model.ViewModel.Delivery.DeliveryPageViewModel
+
+@{
+    Layout = "../Shared/_PageMaster.cshtml";
+
+}
+
+<script src="/js/crafty_postcode.class.js"></script>
+<script type="text/javascript">var cp_obj = CraftyPostcodeCreate();
+cp_obj.set("access_token", "xxxxx-xxxxx-xxxxx-xxxxx"); // your token here
+cp_obj.set("result_elem_id", "crafty_postcode_result_display");
+cp_obj.set("form", "address");
+cp_obj.set("elem_company", "companyname");
+cp_obj.set("elem_street1", "DeliveryAddress1");
+cp_obj.set("elem_street2", "DeliveryAddress2");
+cp_obj.set("elem_street3", "DeliveryAddress3");
+cp_obj.set("elem_town", "DeliveryAddress4");
+cp_obj.set("elem_postcode", "DeliveryPostcode");</script>
+
+@using (Html.BeginForm("Continue", "Delivery", FormMethod.Post, new { @id = "address", @name = "address" }))
+{
+
+
+    @Html.HiddenFor(x => x.InvoiceAddress1)
+    @Html.HiddenFor(x => x.InvoiceAddress2)
+    @Html.HiddenFor(x => x.InvoiceAddress3)
+    @Html.HiddenFor(x => x.InvoiceAddress4)
+    @Html.HiddenFor(x => x.Postcode)
+
+
+<h2 class="title">Delivery</h2>
+                <div class="row">
+
+                <div class="col-lg-12 registrationLabel">
+                <div class="col-lg-4">    Delivery Method</div>
+                <div class="col-lg-6">
+
+                <div class="col-lg-12">
+
+                @foreach (var option in Model.DeliveryOptions)
+                {
+                    <div>
+                    <table class="table">
+                    <tr>
+                        <td>@Html.RadioButtonFor(x => x.DeliverySelection, option.DeliveryOptionID, new { @checked = (option.DeliveryOptionID == 1) })</td>
+                    <td>@option.Title</td>
+                    <td>£@option.Price</td>
+                    </tr>
+                    </table>
+                    </div>
+                }
+
+
+                </div>
+                </div>
+                </div>
+
+
+                <div class="col-lg-12 registrationLabel">
+                <div class="col-lg-4">    @Html.RadioButtonFor(x => x.UserInvoiceAddress, true, new { @checked = true })   Use invoice address for delivery</div>
+                <div class="col-lg-6">
+
+                <div class="col-lg-12">
+
+
+
+                @Html.ValueFor(x => x.InvoiceAddress1)<br />
+                @Html.ValueFor(x => x.InvoiceAddress2)<br />
+                @Html.ValueFor(x => x.InvoiceAddress3)<br />
+                @Html.ValueFor(x => x.InvoiceAddress4)<br />
+                @Html.ValueFor(x => x.Postcode)<br />
+                </div>
+                </div>
+                </div>
+
+                <div class="col-lg-12 registrationLabel">
+                    <div class="col-lg-4">@Html.RadioButtonFor(x => x.UserInvoiceAddress, false, new { id = "chk_useAnotherAddress"})   Use another address for delivery</div>
+                <div class="col-lg-6">
+
+                </div>
+                    <div id="Address">
+                <div class="row">
+                <div class="col-lg-12">
+
+                <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left" for="Firstname">Postcode</label>
+                @Html.TextBoxFor(x => x.DeliveryPostcode,
+                                               new
+                                               {
+                                                   @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+                                                   placeholder = "Postcode",
+                                                   maxlength = 50,
+                                                   title = "Postcode",
+                                                   data_toggle = "tooltip",
+
+                                               })
+
+                <button type="button" onclick="    cp_obj.doLookup()" class="btn btn-secondary registration findAddress ">Find Address</button><br />
+
+
+                <input type="hidden" name="companyname" /><br />
+
+
+
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-lg-12">
+                <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left"></label>
+                <span id="crafty_postcode_result_display">&nbsp;</span><br />
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-lg-12">
+                <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left">Invoice Address</label>
+                @Html.TextBoxFor(x => x.DeliveryAddress1,
+                                               new
+                                               {
+                                                   @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+                                                   placeholder = "",
+                                                   maxlength = 50,
+                                                   title = "",
+                                                   data_toggle = "tooltip",
+
+                                               })
+
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-lg-12">
+                <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left"></label>
+                @Html.TextBoxFor(x => x.DeliveryAddress2,
+                                               new
+                                               {
+                                                   @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+                                                   placeholder = "",
+                                                   maxlength = 50,
+                                                   title = "",
+                                                   data_toggle = "tooltip",
+
+                                               })
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-lg-12">
+                <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left"></label>
+                @Html.TextBoxFor(x => x.DeliveryAddress3,
+                                               new
+                                               {
+                                                   @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+                                                   placeholder = "",
+                                                   maxlength = 50,
+                                                   title = "",
+                                                   data_toggle = "tooltip",
+
+                                               })
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-lg-12">
+                <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left"></label>
+                @Html.TextBoxFor(x => x.DeliveryAddress4,
+                                               new
+                                               {
+                                                   @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+                                                   placeholder = "",
+                                                   maxlength = 50,
+                                                   title = "",
+                                                   data_toggle = "tooltip",
+
+                                               })
+                </div>
+                </div>
+                        </div>
+
+                <div class="row">
+                <div class="col-lg-12">
+
+                <button type="submit" class="btn btn-secondary registration login-submit pull-right">
+                Continue
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                </button>
+
+                </div>
+                </div>
+                </div>
+                </div>
+            }

@@ -1,4 +1,4 @@
-﻿namespace totalsmarthomes.Models.Base
+﻿namespace StoreFront.Model.Base
 {
     class Property
     {

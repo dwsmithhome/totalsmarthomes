@@ -1,6 +1,5 @@
 ﻿@* Renders The Fav Icon*@
-@model totalsmarthomes.Models.ViewModels.Shared.MetaViewModel
-
+@model StoreFront.Model.ViewModel.Shared.MetaViewModel
 @* Renders The Meta Data and other Head Content *@
 @{
     try
@@ -62,21 +61,24 @@
         }
 
         var canonicalUrl = String.Empty;
-        if (umbraco.library.RequestServerVariables("HTTP_HOST").ToLower().StartsWith("www"))
+
+
+
+        if (Context.Request.Host.Value.ToLower().StartsWith("www"))
         {
-            canonicalUrl = string.Concat("http://", umbraco.library.RequestServerVariables("HTTP_HOST"), Model.CurrentContent.Url);
+            canonicalUrl = string.Concat("http://", Context.Request.Host.Value, Model.CurrentContent.Url);
         }
         else
         {
-            canonicalUrl = string.Concat("http://www.", umbraco.library.RequestServerVariables("HTTP_HOST"), Model.CurrentContent.Url);
+            canonicalUrl = string.Concat("http://www.", Context.Request.Host.Value, Model.CurrentContent.Url);
         }
         <link rel="canonical" href="@canonicalUrl" />
         <title>@Model.Title</title>
     }
     catch (Exception ex)
     {
-
-        LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType, "Error rendering MetaHeadContent for page " + Model.CurrentContent.Id, ex);
+        ex.Message.ToString();
+        //LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType, "Error rendering MetaHeadContent for page " + Model.CurrentContent.Id, ex);
 
     }
 }

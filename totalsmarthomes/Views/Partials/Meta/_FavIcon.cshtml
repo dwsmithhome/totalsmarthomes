@@ -1,8 +1,8 @@
 ﻿@* Renders The Fav Icon*@
-@model totalsmarthomes.Models.ViewModels.Shared.MetaViewModel
+@model StoreFront.Model.ViewModel.Shared.MetaViewModel
 @{
     if (Model.FavIcon != null)
     {
-        <link rel="shortcut icon" href="@Model.FavIcon.Url">
+        <link rel="shortcut icon" href="@Model.FavIcon">
     }
 }

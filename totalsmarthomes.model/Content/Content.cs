@@ -1,7 +1,7 @@
 ﻿
-using totalsmarthomes.Models.Base;
+using StoreFront.Model.Base;
 
-namespace totalsmarthomes.Models.Content
+namespace StoreFront.Model.Content
 {
     public class Content : BaseModel
     {

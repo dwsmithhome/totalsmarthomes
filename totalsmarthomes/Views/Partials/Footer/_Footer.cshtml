@@ -1,15 +1,15 @@
-﻿@model totalsmarthomes.Models.ViewModels.Shared.FooterViewModel
+﻿@model StoreFront.Model.ViewModel.Shared.FooterViewModel
 <footer class="footer">
-    @Html.Partial("Footer/_CTABanner")
+    <partial name="_CTABanner.cshtml" />
     <!-- .footer-links-section -->
     <div class="footer-bottom">
-        @Html.Partial("Footer/_FooterLogo")
+        <partial name="_FooterLogo.cshtml" />
         <div class="clearfix">&nbsp;</div>
-        @Html.Partial("Footer/_FooterColumnMenus")
+        <partial name="_FooterColumnMenus.cshtml" />
         <div class="clearfix">&nbsp;</div>
         <div class="container">
             <div class="row">
-                @Html.Partial("Footer/_Copyright")
+                <partial name="_Copyright.cshtml" />
             </div>
             <div class="clearfix">&nbsp;</div>
         </div>

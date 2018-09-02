@@ -1,5 +1,6 @@
-﻿@using AppointmentBooking.Models.Search
-@model AppointmentBooking.Models.ViewModels.Search.SearchViewModel
+﻿@using StoreFront.Model.Search
+@using StoreFront.Model.Interface;
+@model StoreFront.Model.ViewModel.Search.SearchPageViewModel
 
 @{
     Layout = "~/Views/_PageMaster.cshtml";
@@ -7,100 +8,100 @@
 <div class="clearfix">&nbsp;</div>
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        @using (Html.BeginUmbracoForm("Index", "SearchRsults"))
+        @using (Html.BeginForm("Index", "SearchRsults"))
         {
             <div class="form-inline">
                 <div class="form-group">
                     @Html.LabelFor(m => m.SearchTerm, "Search keyowrds:")
-                    @Html.TextBoxFor(m => m.SearchTerm, new {placeholder = "search", @class = "input-lg"})
+                    @Html.TextBoxFor(m => m.SearchTerm, new { placeholder = "search", @class = "input-lg" })
                     <button id="submit-button" class="btn btn-cta-secondary padded searchButton">Search</button>
                 </div>
             </div>
 
             if (Model.SearchResults.Results != null && Model.SearchResults.Results.Any())
             {
-                 var contentString = "Read More";
-                 <div class="clearfix">&nbsp;</div>
-                 <h2>Your search for <span class="bold">@Model.SearchTerm</span> returned @Model.SearchResults.ResultTotal results</h2>
-                 <div class="clearfix">&nbsp;</div>
-                 <ul class="search-results list-unstyled">
-                     @foreach (var result in Model.SearchResults.Results)
-                     {
-                         <li class="@result.DocumentTypeAlias result">
-                             <h4><strong><a href="@result.Url">@Html.Raw(result.Name)</a></strong></h4>
-                             <a class="text-primary" href="@result.Url">@Model.SearchResults.SiteURL@result.Url</a>
-                             <p>
-                                 @if (result.HasProperty("bodyText"))
-                                 {
-                                     contentString = result.GetPropertyValue<string>("bodyText");
-                                 }
-                                 else if (result.HasProperty("ContentBlocks"))
-                                 {
-                                     var content = result.GetPropertyValue<IEnumerable<IPublishedContent>>("ContentBlocks").FirstOrDefault();
-                                     contentString = content.GetPropertyValue<string>("mainContent");
-                                 }
-                                 else if (result.HasProperty("pageContent"))
-                                 {
-                                     contentString = result.GetPropertyValue<string>("pageContent");
-                                 }
-                                 else if (result.HasProperty("metaDescription"))
-                                 {
-                                     contentString = result.GetPropertyValue<string>("metaDescription");
-                                 }
-                                 @if (contentString != null)
-                                 {
-                                     contentString = (contentString.Length > 300 ? contentString.Substring(0, 300) + " ..." : contentString);
-                                     @Html.Raw(contentString)
-                                 }
-                             </p>
-                             <div class="clearfix">&nbsp;</div>
-                         </li>
-                     }
-                 </ul>
-                 if (Model.SearchResults.PageCount > 1)
-                 {
-                     <div class="pagination">
-                         @RenderPagingButtons(Model.SearchResults.PagingBounds, Model.SearchResults.PageNumber, Model.SearchResults.PageCount)
-                     </div>
-                 }
-             }
-             else
-             {
-                 <p>Sorry, no results matching <span class="bold">@Model.SearchTerm</span> were found.</p>
-                 <p>You can view a list of all pages in the site on our <a href="/sitemap/">Sitemap page</a>.</p>
-             }
+                var contentString = "Read More";
+                <div class="clearfix">&nbsp;</div>
+                <h2>Your search for <span class="bold">@Model.SearchTerm</span> returned @Model.SearchResults.ResultTotal results</h2>
+                <div class="clearfix">&nbsp;</div>
+                <ul class="search-results list-unstyled">
+                    @foreach (var result in Model.SearchResults.Results)
+                    {
+                        <li class="@result.DocumentTypeAlias result">
+                            <h4><strong><a href="@result.Url">@Html.Raw(result.Name)</a></strong></h4>
+                            <a class="text-primary" href="@result.Url">@Model.SearchResults.SiteURL@result.Url</a>
+                            <p>
+                                @if (result.HasProperty("bodyText"))
+                                {
+                                    contentString = result.GetPropertyValue<string>("bodyText");
+                                }
+                                else if (result.HasProperty("ContentBlocks"))
+                                {
+                                    var content = result.GetPropertyValue<IEnumerable<IContent>>("ContentBlocks").FirstOrDefault();
+                                    contentString = content.GetPropertyValue<string>("mainContent");
+                                }
+                                else if (result.HasProperty("pageContent"))
+                                {
+                                    contentString = result.GetPropertyValue<string>("pageContent");
+                                }
+                                else if (result.HasProperty("metaDescription"))
+                                {
+                                    contentString = result.GetPropertyValue<string>("metaDescription");
+                                }
+                                @if (contentString != null)
+                                {
+                                    contentString = (contentString.Length > 300 ? contentString.Substring(0, 300) + " ..." : contentString);
+                                    @Html.Raw(contentString)
+                                }
+                            </p>
+                            <div class="clearfix">&nbsp;</div>
+                        </li>
+                    }
+                </ul>
+                if (Model.SearchResults.PageCount > 1)
+                {
+                    <div class="pagination">
+                        @* @RenderPagingButtons(Model.SearchResults.PagingBounds, Model.SearchResults.PageNumber, Model.SearchResults.PageCount)*@
+
+                    </div>
+                }
+            }
+            else
+            {
+                <p>Sorry, no results matching <span class="bold">@Model.SearchTerm</span> were found.</p>
+                <p>You can view a list of all pages in the site on our <a href="/sitemap/">Sitemap page</a>.</p>
+            }
         }
     </div>
 </div>
 
-@helper RenderPagingButtons(PagingBoundsModel pagingBounds, int pageNumber, int pageCount)
-{
-    if (pagingBounds.ShowFirstButton)
+@*@helper RenderPagingButtons(PagingBoundsModel pagingBounds, int pageNumber, int pageCount)
     {
-        <button name="page-1">First </button>
-    }
-
-    if (pageNumber > 1)
-    {
-        <button name="page-@(pageNumber - 1)"> Prev </button>
-    }
-
-    if (pagingBounds.StartPage != pagingBounds.EndPage)
-    {
-        for (var i = pagingBounds.StartPage; i <= pagingBounds.EndPage; i++)
+        if (pagingBounds.ShowFirstButton)
         {
-            <button name="page-@i" class="@(i == pageNumber ? "current" : null)">@i</button>
+            <button name="page-1">First </button>
         }
-    }
 
-    if (pageNumber < pageCount)
-    {
-        <button name="page-@(pageNumber + 1)"> Next </button>
-    }
+        if (pageNumber > 1)
+        {
+            <button name="page-@(pageNumber - 1)"> Prev </button>
+        }
 
-    if (pagingBounds.ShowLastButton)
-    {
-        <button name="page-@(pageCount)"> Last </button>
-    }
-}
-    
+        if (pagingBounds.StartPage != pagingBounds.EndPage)
+        {
+            for (var i = pagingBounds.StartPage; i <= pagingBounds.EndPage; i++)
+            {
+                <button name="page-@i" class="@(i == pageNumber ? "current" : null)">@i</button>
+            }
+        }
+
+        if (pageNumber < pageCount)
+        {
+            <button name="page-@(pageNumber + 1)"> Next </button>
+        }
+
+        if (pagingBounds.ShowLastButton)
+        {
+            <button name="page-@(pageCount)"> Last </button>
+        }
+    }*@

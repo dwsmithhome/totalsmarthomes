@@ -1,0 +1,13 @@
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/bin/Debug/netcoreapp2.1/totalsmarthomes.Service.deps.json
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/bin/Debug/netcoreapp2.1/totalsmarthomes.Service.dll
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/bin/Debug/netcoreapp2.1/totalsmarthomes.Service.pdb
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/bin/Debug/netcoreapp2.1/Microsoft.Extensions.Configuration.Abstractions.dll
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/bin/Debug/netcoreapp2.1/totalsmarthomes.Model.dll
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/bin/Debug/netcoreapp2.1/totalsmarthomes.Model.pdb
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/bin/Debug/netcoreapp2.1/Microsoft.Extensions.Configuration.Abstractions.xml
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/obj/Debug/netcoreapp2.1/totalsmarthomes.Service.csprojResolveAssemblyReference.cache
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/obj/Debug/netcoreapp2.1/totalsmarthomes.Service.csproj.CoreCompileInputs.cache
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/obj/Debug/netcoreapp2.1/totalsmarthomes.Service.AssemblyInfoInputs.cache
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/obj/Debug/netcoreapp2.1/totalsmarthomes.Service.AssemblyInfo.cs
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/obj/Debug/netcoreapp2.1/totalsmarthomes.Service.dll
+/Users/Dave/Projects/totalsmarthomes/totalsmarthomes.Logic/obj/Debug/netcoreapp2.1/totalsmarthomes.Service.pdb

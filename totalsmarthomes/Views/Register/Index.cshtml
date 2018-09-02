@@ -1,0 +1,281 @@
+﻿@model StoreFront.Model.ViewModel.Register.RegisterPageViewModel
+
+@{
+    Layout = "../Shared/_PageMaster.cshtml";
+}
+<script src="/js/crafty_postcode.class.js"></script>
+<script type="text/javascript">
+var cp_obj = CraftyPostcodeCreate();
+cp_obj.set("access_token", "xxxxx-xxxxx-xxxxx-xxxxx"); // your token here
+cp_obj.set("result_elem_id", "crafty_postcode_result_display");
+cp_obj.set("form", "address");
+cp_obj.set("elem_company", "companyname");
+cp_obj.set("elem_street1", "Address1");
+cp_obj.set("elem_street2", "Address2");
+cp_obj.set("elem_street3", "Address3");
+cp_obj.set("elem_town", "Town");
+cp_obj.set("elem_postcode", "Postcode");
+
+
+
+
+
+</script>
+
+<h2 class="title">Register</h2>
+
+@using (Html.BeginForm("Register", "Register", FormMethod.Post, new { @id = "address", @name = "address" }))
+{
+    <div class="row align-bottom">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-info text-right col-lg-12  col-md-7 col-sm-7 col-xs-12  registration-requiredfields align-bottom pull-right">
+                        All fields are required
+                    </div>
+                </div>
+            </div>
+            <div class="row registrationrow">
+                <div class="col-lg-12">
+                    <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left" for="Firstname">First Name</label>
+                    @Html.TextBoxFor(x => x.ForeName,
+   new
+   {
+       @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+       placeholder = "First name",
+       maxlength = 50,
+       title = "Please enter your first name",
+       data_toggle = "tooltip"
+   })
+
+                    @Html.ValidationMessageFor(x => x.ForeName, "Please enter your first name",
+   new
+   {
+       @class = "error col-xs-12 col-sm-12 col-md-12 col-lg-4"
+   })
+
+                </div>
+            </div>
+
+            <div class="row registrationrow">
+                <div class="col-lg-12">
+                    <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left" for="Firstname">Last Name</label>
+                    @Html.TextBoxFor(x => x.SurName,
+   new
+   {
+       @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+       placeholder = "Last name",
+       maxlength = 50,
+       title = "Please enter your last name",
+       data_toggle = "tooltip"
+   })
+
+                    @Html.ValidationMessageFor(x => x.ForeName, "Please enter your last name",
+   new
+   {
+       @class = "error col-xs-12 col-sm-12 col-md-12 col-lg-4"
+   })
+
+                </div>
+            </div>
+
+
+            <div class="row registrationrow">
+                <div class="col-lg-12">
+                    <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left" for="Firstname">Email</label>
+                    @Html.TextBoxFor(x => x.Email,
+   new
+   {
+       @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+       placeholder = "Email",
+       maxlength = 50,
+       title = "Please enter email address",
+       data_toggle = "tooltip"
+   })
+
+                    @Html.ValidationMessageFor(x => x.Email, "Please enter your email",
+   new
+   {
+       @class = "error col-xs-12 col-sm-12 col-md-12 col-lg-4"
+   })
+
+                </div>
+            </div>
+
+
+
+            <div class="row registrationrow">
+                <div class="col-lg-12">
+
+                    <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left" for="Firstname">Postcode</label>
+                    @Html.TextBoxFor(x => x.Postcode,
+   new
+   {
+       @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-3 registration-textfield pull-left",
+       placeholder = "Postcode",
+       maxlength = 50,
+       title = "Postcode",
+       data_toggle = "tooltip",
+
+   })
+
+                    <button type="button" onclick="cp_obj.doLookup();DisplayAddress()" class="btn btn-secondary registration findAddress ">Find Address</button><br />
+                    @Html.ValidationMessageFor(x => x.Postcode, "You must enter a postcode and select an address.",
+new
+{
+@class = "error col-xs-12 col-sm-12 col-md-12 col-lg-9 offset-lg-3"
+})
+
+                    <input type="hidden" name="companyname" /><br />
+
+
+
+                </div>
+            </div>
+
+
+
+            <div id="Address" style="display:none;">
+                <div class="row registrationrow">
+                    <div class="col-lg-12">
+                        <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left"></label>
+                        <span id="crafty_postcode_result_display">&nbsp;</span><br />
+                    </div>
+                </div>
+                <div class="row registrationrow">
+                    <div class="col-lg-12">
+                        <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left">Invoice Address</label>
+                        @Html.TextBoxFor(x => x.Address1,
+new
+{
+ @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+ placeholder = "",
+ maxlength = 50,
+ title = "",
+ data_toggle = "tooltip",
+ @readonly = "readonly"
+
+})
+                         @Html.ValidationMessageFor(x => x.Address1, "You must enter a postcode and select an address.")
+                    </div>
+                </div>
+                <div class="row registrationrow">
+                    <div class="col-lg-12">
+                        <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left"></label>
+                        @Html.TextBoxFor(x => x.Address2,
+new
+{
+@class = "registration-form-control  input-lg primary-input  col-xs-12 col-sm-10 col-md-10 col-lg-3 registration-textfield pull-left",
+placeholder = "",
+maxlength = 50,
+title = "",
+data_toggle = "tooltip",
+@readonly = "readonly"
+
+})
+
+
+                    </div>
+                </div>
+                <div class="row  registrationrow">
+                    <div class="col-lg-12">
+                        <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left"></label>
+                        @Html.TextBoxFor(x => x.Address3,
+new
+{
+@class = "registration-form-control  input-lg primary-input  col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+placeholder = "",
+maxlength = 50,
+title = "",
+data_toggle = "tooltip",
+@readonly = "readonly"
+})
+
+                    </div>
+                </div>
+                <div class="row registrationrow">
+                    <div class="col-lg-12">
+                        <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left"></label>
+                        @Html.TextBoxFor(x => x.Town,
+new
+{
+@class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+placeholder = "",
+maxlength = 50,
+title = "",
+data_toggle = "tooltip",
+@readonly = "readonly"
+
+})
+                        @Html.ValidationMessageFor(x => x.Town, "You must enter a postcode and select an address.")
+                    </div>
+                </div>
+            </div>
+            <div class="row registrationrow">
+                <div class="col-lg-12">
+                    <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left">Password</label>
+                    @Html.PasswordFor(x => x.Password,
+new
+{
+ @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+ placeholder = "Password",
+ maxlength = 50,
+ title = "Password",
+ data_toggle = "tooltip",
+
+})
+                    @Html.ValidationMessageFor(x => x.Email, "Please enter your Password",
+   new
+   {
+       @class = "error col-xs-12 col-sm-12 col-md-12 col-lg-4"
+   })
+
+
+                </div>
+            </div>
+            <div class="row registrationrow">
+                <div class="col-lg-12">
+                    <div class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left piSpacer"></div>
+                    <div class="col-lg-9">
+                        <span id="passwordstrengthindicator"></span>
+                    </div>
+
+                    </div>
+                </div>
+                    <div class="row registrationrow">
+                        <div class="col-lg-12">
+                            <label class="control-label registrationLabel col-lg-3 col-sm-3 col-xs-12 pull-left">Repeat Password</label>
+                            @Html.PasswordFor(x => x.RepeatPassword,
+     new
+     {
+         @class = "registration-form-control  input-lg primary-input required col-xs-12 col-sm-10 col-md-10 col-lg-4 registration-textfield pull-left",
+         placeholder = "Repeat Password",
+         maxlength = 50,
+         title = "Repeat Password",
+         data_toggle = "tooltip",
+
+     })
+                            @Html.ValidationMessageFor(x => x.Email, "Please re-enter your password",
+           new
+           {
+               @class = "error col-xs-12 col-sm-12 col-md-12 col-lg-4"
+           })
+
+                        </div>
+                    </div>
+
+                    <div class="row registrationrow">
+                        <div class="col-lg-12">
+
+                            <button type="submit" class="btn btn-secondary registration login-submit pull-right">
+                                Register
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            }
+

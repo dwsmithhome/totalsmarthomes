@@ -1,6 +1,6 @@
-﻿@model AppointmentBooking.Models.ViewModels.Shared.HeaderViewModel
+﻿@model StoreFront.Model.ViewModel.Shared.HeaderViewModel
 @*Generates Top Level Nav in Header (only Desktop and Tablet (Landscape))*@
-
+<hr class="navigationHR" />
 @if (Model.PrimaryNavigation != null)
 {
     <ul class="list-inline topnav">
@@ -17,7 +17,7 @@
                         @foreach (var child in item.ChildMenus)
                         {
                             <li class="dropdown-nav">
-                                <a href="@child.PageLink.Url" title="@child.MenuItemTitle">
+                                <a asp-controller="product" asp-action="@child.Url" title="@child.MenuItemTitle">
                                     @child.MenuItemTitle
                                 </a>
                             </li>
@@ -28,7 +28,7 @@
             else
             {
                 <li class="@classname">
-                    <a href="@item.PageLink.Url" title="@item.MenuItemTitle">
+                    <a asp-controller="product" asp-action="@item.Url" title="@item.MenuItemTitle">
                         @item.MenuItemTitle
                     </a>
                 </li>

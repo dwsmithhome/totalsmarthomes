@@ -1,0 +1,9 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Product].[Category](
+	[CategoryID] [int] NOT NULL,
+	[Title] [nvarchar](250) NOT NULL
+) ON [PRIMARY]
+GO

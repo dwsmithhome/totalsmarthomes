@@ -1,63 +1,79 @@
-﻿@model totalsmarthomes.Models.ViewModels.Shared.FooterViewModel
-@*Displays featured links within the footer, rendered in a column.*@
-
-@if (Model.FooterMenu != null)
+﻿@if (Model.FooterMenu != null)
 {
     var i = 0;
-    <div class="row">
-        @foreach (var menu in Model.FooterMenu)
-        {
-            @RenderColumnLinks(menu.Heading, i , menu.Links, i == Model.FooterMenu.Count()-1);
-            i++;
-        }
-    </div>
-}
+    <div class="row footerlinks">
+    @foreach (var menu in Model.FooterMenu)
+    {
+        var colName = "footer-col-links-" + i;
+        var linkId = "link" + i;
+        var classes = "offset-lg-1 col-lg-3 offset-md-1 col-md-4 col-sm-4 hidden-xs";
 
-@helper RenderColumnLinks(string heading, int id, IEnumerable<IPublishedContent> links, bool isLastMenuGroup)
-{
-    var colName = "footer-col-links-" + id;
-    var linkId = "link" + id;
-    var classes = "col-lg-push-1 col-lg-4 col-md-push-1 col-md-4 col-sm-4 hidden-xs";
-    
-    <div class="col-xs-12 hidden-lg hidden-md hidden-sm">
-        <h4 class="small" data-toggle="collapse" id="@linkId" style="cursor: pointer;" aria-expanded="false" aria-controls="footer-col-links">
-            <i class="glyphicon glyphicon-menu-down" id="@linkId-down" style="display: none;"></i>
-            <i class="glyphicon glyphicon-menu-right" id="@linkId-right"></i>&nbsp;&nbsp;&nbsp;@heading
-        </h4>        
+
+        <div class="col-xs-12 hidden-lg hidden-md hidden-sm ">
+            <h4 class="small" data-toggle="collapse" id="@linkId" style="cursor: pointer;" aria-expanded="false" aria-controls="footer-col-links">
+                <i class="glyphicon glyphicon-menu-down" id="@linkId-down" style="display: none;"></i>
+                <i class="glyphicon glyphicon-menu-right" id="@linkId-right"></i>&nbsp;&nbsp;&nbsp;@menu.Heading
+            </h4>
+
         <div id="@colName" style="display: none;">
-            <hr/>
+        <hr/>
             <ul class="list-group" aria-expanded="false">
-                @foreach (var link in links.ToList())
+                @foreach(var link in menu.Links)
                 {
-                    <li><a href="@link.Url" title="@link.Name">@link.Name</a></li>
+                    <li>
+                        <a href="/@link.Url" title="@link.Name"> 
+                            @link.Name 
+                        </a>
+                    </li>
+
                     <li class="clearfix hidden-lg hidden-md hidden-sm"></li>
                 }
             </ul>
         </div>
         <hr/>
-        @if (isLastMenuGroup)
+        @*@if(i == Model.FooterMenu.Count()-1)
         {
-            <h4 class="small externalLink"><a href="@Model.FooterExternalLink.Url">@Model.FooterExternalLink.Name</a></h4>
-            <hr/>
-        }        
-    </div>
-        
-    if (id > 0)
-    {
-        classes += " col-sm-push-1";
-    }
-    <div class="@classes">
-        <h4>@heading </h4>
-        <ul>
-            @foreach (var link in links.ToList())
-            {
-                <li><a href="@link.Url" title="@link.Name">@link.Name</a></li>
-                <li class="clearfix hidden-lg hidden-md hidden-sm"></li>
-            }
-        </ul>
-        @if (isLastMenuGroup)
+            <h4 class="small externalLink">
+                <a href="@Model.FooterExternalLink.Url" > 
+                    @Model.FooterExternalLink.Name 
+                </a >
+            </h4 >
+        <hr />
+        }*@
+        </div>
+
+        if (i > 0)
         {
-            <h4><a href="@Model.FooterExternalLink.Url">@Model.FooterExternalLink.Name</a></h4>
+            classes += " col-sm-push-1";
         }
+
+        <div class="@classes">
+        <h4>
+            @menu.Heading
+        </h4>
+    <ul>
+
+    @foreach(var link in menu.Links)
+    {
+        <li>
+            <a asp-controller="@menu.Heading" asp-action="@link.Url" title="@link.Name"> 
+                @link.Name 
+            </a>
+        </li >
+        <li class="clearfix hidden-lg hidden-md hidden-sm"></li>
+    }
+        
+    </ul>
+
+    @*@if(i == Model.FooterMenu.Count()-1)
+    {
+        <h4>
+            <a href = "@Model.FooterExternalLink.Url">
+                 @Model.FooterExternalLink.Name </a>
+        </h4 >
+    }*@
+        </div>
+    i++;
+    }
     </div>
-}
+    }

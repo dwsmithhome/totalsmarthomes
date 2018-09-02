@@ -1,0 +1,75 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BundlerMinifier.Core" Version="2.8.391" />
+    <PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.2" />
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Validation" Version="3.2.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Partials\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\fonts\" />
+    <Folder Include="Views\Legal\" />
+    <Folder Include="Views\About\" />
+    <Folder Include="Views\Brands\" />
+    <Folder Include="Views\Product\" />
+    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Views\Basket\" />
+    <Folder Include="Views\Partials\Basket\" />
+    <Folder Include="Views\Account\" />
+    <Folder Include="Views\Login\" />
+    <Folder Include="wwwroot\images\Product\" />
+    <Folder Include="wwwroot\images\Product\LI1111\" />
+    <Folder Include="Views\ProductDetail\" />
+    <Folder Include="Views\Register\" />
+    <Folder Include="Views\Delivery\" />
+    <Folder Include="Views\Payment\" />
+    <Folder Include="Views\Confirmation\" />
+    <Folder Include="Views\Checkout\" />
+    <Folder Include="Views\Profile\" />
+    <Folder Include="Views\Search\" />
+    <Folder Include="Views\Render\" />
+    <Folder Include="wwwroot\lib\bootstrap\dist\css\" />
+    <Folder Include="Views\ResetPassword\" />
+    <Folder Include="wwwroot\lib\jquery\dist\css\" />
+  </ItemGroup>
+  <ItemGroup>
+
+  </ItemGroup>
+  <ItemGroup>
+   
+  </ItemGroup>
+  <ItemGroup>
+    
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\ErrorViewModel.cs" />
+
+  </ItemGroup>
+  <ItemGroup>
+
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\totalsmarthomes.model\StoreFront.Model.csproj" />
+    <ProjectReference Include="..\totalsmarthomes.Logic\StoreFront.Service.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\lib\jquery\dist\css\jquery-ui.min.css" />
+    <Content Remove="wwwroot\lib\jquery\dist\css\jquery-ui.structure.min.css" />
+    <Content Remove="wwwroot\css\fotorama.css" />
+    <Content Remove="wwwroot\js\fotorama.js" />
+    <Content Remove="wwwroot\lib\jquery\dist\jquery.passwordstrength.js" />
+    <Content Remove="wwwroot\lib\jquery\dist\jquery.passwordstrength.min.js" />
+    <Content Remove="wwwroot\lib\jquery\dist\jquery-ui.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\lib\jquery\dist\css\jquery-ui.min.css" />
+    <None Include="wwwroot\lib\jquery\dist\css\jquery-ui.structure.min.css" />
+  </ItemGroup>
+</Project>

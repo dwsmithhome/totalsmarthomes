@@ -28,7 +28,8 @@
           "BundlerMinifier.Core": "2.8.391",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.NETCore.App": "2.1.0",
-          "totalsmarthomes.Models": "1.0.0"
+          "totalsmarthomes.Models": "1.0.0",
+          "totalsmarthomes.Service": "1.0.0"
         },
         "runtime": {
           "totalsmarthomes.dll": {}
@@ -246,6 +247,17 @@
         },
         "compile": {
           "totalsmarthomes.Models.dll": {}
+        }
+      },
+      "totalsmarthomes.Service/1.0.0": {
+        "dependencies": {
+          "totalsmarthomes.Models": "1.0.0"
+        },
+        "runtime": {
+          "totalsmarthomes.Service.dll": {}
+        },
+        "compile": {
+          "totalsmarthomes.Service.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3270,6 +3282,11 @@
       "hashPath": "nuglify.1.5.11.nupkg.sha512"
     },
     "totalsmarthomes.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "totalsmarthomes.Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

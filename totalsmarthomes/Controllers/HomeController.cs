@@ -1,59 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using totalsmarthomes.Models;
-using totalsmarthomes.Models.ViewModels.HomePage;
+﻿using Microsoft.AspNetCore.Mvc;
+using StoreFront.Model.Interface;
+using StoreFront.Model.PageModel.HomePage;
+using StoreFront.Model.ViewModel.HomePage;
 
 namespace totalsmarthomes.Controllers
 {
     public class HomeController : Controller
     {
+        IPage<HomePageViewModel, HomePageModel> _page;
+
+        public HomeController(IPage<HomePageViewModel, HomePageModel> page)
+        {
+            _page = page;
+        }
+
         public IActionResult Index()
         {
-            var homePageModel = new Models.PageModels.HomePage.HomePageModel();
-
-
-
-            var pageContent = new Models.Content.Content();
-            var mobileContent = new Models.Content.Content();
-            var bannerContent = new Models.Content.Content();
-
-
-            bannerContent.Url = "~/Images/banner.jpg";
-            bannerContent.AddProperty("bannerBackgroundImage", bannerContent);
-
-            mobileContent.AddProperty("BannerCaption", "hello");
-
-            pageContent.AddProperty("mainBanner", bannerContent);
-            pageContent.AddProperty("mobileBanner", mobileContent);
-
-
-            homePageModel.Content = pageContent;
-            var homePageViewModel = new HomePageViewModel(homePageModel);
-
-
-
-            return View(homePageViewModel);
+            return View(_page.Load());
         }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
+        public IActionResult SplashPage()
         {
             return View();
         }
